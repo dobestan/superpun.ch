@@ -10,7 +10,7 @@ clean:
 
 # target: migrate - Migrate all django applications considering app dependencies
 migrate:
-	python superpunch/manage.py makemigrations multisites items
+	python superpunch/manage.py makemigrations tidbits
 	python superpunch/manage.py migrate
 
 
