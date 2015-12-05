@@ -11,4 +11,4 @@ class TidbitsBaseView(View):
             .filter(
                 is_public=True,
                 provider__is_public=True,
-            )
+        )
