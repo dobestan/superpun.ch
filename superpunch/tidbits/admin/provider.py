@@ -8,11 +8,14 @@ class ProviderModelAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
         'name',
 
+        'is_public',
+
         'created_at',
         'updated_at',
     )
 
     list_filter = admin.ModelAdmin.list_filter + (
+        'is_public',
     )
 
     inlines = (

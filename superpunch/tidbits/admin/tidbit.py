@@ -9,12 +9,15 @@ class TidbitModelAdmin(admin.ModelAdmin):
         'title',
         'hash_id',
 
+        'is_public',
+
         'created_at',
         'updated_at',
     )
 
     list_filter = admin.ModelAdmin.list_filter + (
         'provider',
+        'is_public',
     )
 
     inlines = (
