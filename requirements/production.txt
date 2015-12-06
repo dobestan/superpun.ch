@@ -5,3 +5,8 @@ pandas
 gunicorn
 honcho
 hashids
+feedparser
+Pillow
+requests
+lxml
+cssselect
