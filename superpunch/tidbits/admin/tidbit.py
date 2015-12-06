@@ -6,7 +6,10 @@ from tidbits.models import Tidbit
 @admin.register(Tidbit)
 class TidbitModelAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
+        'provider',
+
         'title',
+        'original_url',
         'hash_id',
 
         'is_public',

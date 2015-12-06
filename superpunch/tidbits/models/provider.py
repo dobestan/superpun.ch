@@ -36,6 +36,7 @@ class Provider(models.Model):
         return self.name
 
     def update_tidbits(self):
+        """Add/Update provider tidbits from a RSS/Atom feed."""
         import feedparser
 
         feed_result = feedparser.parse(self.feed_url)
