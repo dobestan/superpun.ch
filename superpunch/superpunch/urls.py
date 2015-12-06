@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 
@@ -17,4 +19,4 @@ urlpatterns = [
         url(r'^$', TidbitsListView.as_view(), name='list'),
         url(r'^(?P<slug>\w+)/$', TidbitsDetailView.as_view(), name='detail'),
     ], namespace='tidbits', app_name='tidbits')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

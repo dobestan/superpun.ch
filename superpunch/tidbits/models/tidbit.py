@@ -129,5 +129,5 @@ class Tidbit(models.Model):
     def update_meta_image(self):
         from tidbits.utils.crawler import ImageCrawler
 
-        self.image = ImageCrawler.run(self.meta_image_url)
+        self.meta_image = ImageCrawler.run(self.meta_image_url)
         self.save()
