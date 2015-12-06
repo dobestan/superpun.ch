@@ -11,3 +11,5 @@ requests
 lxml
 cssselect
 celery
+flower
+redis
