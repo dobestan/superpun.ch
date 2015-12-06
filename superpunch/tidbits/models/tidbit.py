@@ -62,9 +62,12 @@ class Tidbit(models.Model):
         blank=True,
         null=True,
     )
+    is_meta_crawled = models.BooleanField(
+        default=False,
+    )
 
     is_public = models.BooleanField(
-        default=True,
+        default=False,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -103,6 +106,10 @@ class Tidbit(models.Model):
         self.crawl()
         self.parse_meta_tags()
         self.update_meta_image()
+
+        self.is_meta_crawled = True
+        self.is_public = True
+        self.save()
 
     def crawl(self):
         """Crawl original_html from original_url."""

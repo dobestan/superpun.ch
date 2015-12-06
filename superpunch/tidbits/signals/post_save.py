@@ -6,5 +6,14 @@ from tidbits.models import Tidbit
 
 @receiver(post_save, sender=Tidbit)
 def create_hash_id(sender, instance, created, **kwargs):
-    if not instance.hash_id:
+    if created:
         instance._create_hash_id()
+
+
+@receiver(post_save, sender=Tidbit)
+def update_meta_tags(sender, instance, created, **kwargs):
+    from tidbits.tasks.meta import UpdateTidbitMetaTags
+
+    if created:
+        task = UpdateTidbitMetaTags()
+        task.delay(instance.id)
