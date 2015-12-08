@@ -40,12 +40,12 @@ PIPELINE_JS = {
         'output_filename': 'js/vendor.min.js',
     },
 
-    # 'main': {
-    #     'source_filenames': {
-    #         'js/application.js',
-    #     },
-    #     'output_filename': 'js/superpunch.min.js',
-    # },
+    'main': {
+        'source_filenames': {
+            'js/application.js',
+        },
+        'output_filename': 'js/superpunch.min.js',
+    },
 }
 
 PIPELINE_CSS = {
@@ -56,10 +56,10 @@ PIPELINE_CSS = {
         'output_filename': 'css/vendor.min.css',
     },
 
-    # 'main': {
-    #     'source_filenames': {
-    #         'css/application.css',
-    #     },
-    #     'output_filename': 'css/superpunch.min.css',
-    # },
+    'main': {
+        'source_filenames': {
+            'css/application.css',
+        },
+        'output_filename': 'css/superpunch.min.css',
+    },
 }

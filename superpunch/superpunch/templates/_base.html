@@ -1,14 +1,28 @@
+{% load pipeline %}<!DOCTYPE html>
+<!--
+     _____ __  ______  __________  ____  __  ___   __ ________  __
+    / ___// / / / __ \/ ____/ __ \/ __ \/ / / / | / // ____/ / / /
+    \__ \/ / / / /_/ / __/ / /_/ / /_/ / / / /  |/ // /   / /_/ /
+   ___/ / /_/ / ____/ /___/ _, _/ ____/ /_/ / /|  // /___/ __  /
+  /____/\____/_/   /_____/_/ |_/_/    \____/_/ |_(_)____/_/ /_/
+
+  SuperPun.ch :: Leading Contents Distribution
+  http://superpun.ch
+-->
 <html>
   <head>
+    {% stylesheet 'vendor' %}
+    {% stylesheet 'main' %}
   </head>
   <body>
     <header id="header">
     </header>
     <section id="content">
-      {% block content %}
-      {% endblock %}
+      {% block content %}{% endblock %}
     </section>
     <footer id="footer">
     </footer>
+    {% javascript 'vendor' %}
+    {% javascript 'main' %}
   </body>
 </html>
