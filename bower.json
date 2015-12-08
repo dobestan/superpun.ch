@@ -1,0 +1,24 @@
+{
+  "name": "superpun.ch",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Suchan An <dobestan@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dobestan/superpun.ch",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
