@@ -10,6 +10,10 @@ module.exports = {
 
       'js/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js',
       'css/bootstrap.min.css': 'bootstrap/dist/css/bootstrap.min.css',
+
+      'fonts': [
+        'bootstrap/fonts/',
+      ]
     }
   }
 }

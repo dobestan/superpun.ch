@@ -12,7 +12,6 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'dist', 'media', )
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static', ),
     os.path.join(PROJECT_ROOT, 'dist', 'components', ),
-    os.path.join(PROJECT_ROOT, 'dist', 'static', ),
 )
 
 
@@ -24,7 +23,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
-
 
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
