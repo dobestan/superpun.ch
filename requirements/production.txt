@@ -13,3 +13,4 @@ cssselect
 celery
 flower
 redis
+django-pipeline
