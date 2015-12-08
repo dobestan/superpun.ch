@@ -15,6 +15,17 @@ class SiteProfile(models.Model):
         primary_key=True,
     )
 
+    facebook_page_id = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+    )
+    facebook_page_slug = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
