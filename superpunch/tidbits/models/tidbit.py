@@ -12,6 +12,7 @@ class TidbitManager(models.Manager):
         return self.filter(
             is_public=True,
             provider__is_public=True,
+            is_meta_crawled=True,
         )
 
 

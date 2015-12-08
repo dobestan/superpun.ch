@@ -4,7 +4,7 @@ from django.views.generic.base import RedirectView
 class FacebookPageRedirectView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
-        facebook_page_slug = 'superpun.ch'
+        facebook_page_slug = 'superpunchkr'
         return "https://www.facebook.com/{facebook_page_slug}".format(
             facebook_page_slug=facebook_page_slug,
         )

@@ -16,7 +16,8 @@ urlpatterns = [
     ], namespace='facebook')),
 
     url(r'^', include([
-        url(r'^$', TidbitsListView.as_view(), name='list'),
+        # url(r'^$', TidbitsListView.as_view(), name='list'),
+        url(r'^$', FacebookPageRedirectView.as_view(), name='list'),
         url(r'^(?P<slug>\w+)/$', TidbitsDetailView.as_view(), name='detail'),
     ], namespace='tidbits', app_name='tidbits')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
