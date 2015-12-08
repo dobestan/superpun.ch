@@ -19,6 +19,7 @@ class TidbitModelAdmin(admin.ModelAdmin):
     )
 
     list_filter = admin.ModelAdmin.list_filter + (
+        'provider__site',
         'provider',
         'is_public',
     )

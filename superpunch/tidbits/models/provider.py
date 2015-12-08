@@ -1,13 +1,24 @@
 from django.db import models
+from django.contrib.sites.models import Site
 
 
 class ProviderManager(models.Manager):
+
+    def get_queryset(self):
+        return super(models.Manager, self).get_queryset().select_related(
+            'site',
+            'site__siteprofile',
+        )
 
     def public(self):
         return self.filter(is_public=True, )
 
 
 class Provider(models.Model):
+
+    site = models.ForeignKey(
+        Site,
+    )
 
     name = models.CharField(
         max_length=16,

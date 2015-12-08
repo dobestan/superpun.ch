@@ -1,32 +1,28 @@
 from django.contrib import admin
 
-from tidbits.models import Provider
+from multisites.models import SiteProfile
 
 
-@admin.register(Provider)
-class ProviderModelAdmin(admin.ModelAdmin):
+@admin.register(SiteProfile)
+class SiteProfileModelAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
-        'name',
-
-        'is_public',
-
-        'created_at',
-        'updated_at',
+        'site',
     )
 
     list_filter = admin.ModelAdmin.list_filter + (
-        'site',
-        'is_public',
     )
 
     inlines = (
     )
 
     search_fields = (
-        'name',
+        'site__name',
+        'site__domain',
     )
 
     readonly_fields = (
+        'site',
+
         'created_at',
         'updated_at',
     )

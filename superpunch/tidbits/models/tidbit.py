@@ -6,7 +6,11 @@ from tidbits.utils.image import meta_image_upload_to
 class TidbitManager(models.Manager):
 
     def get_queryset(self):
-        return super(models.Manager, self).get_queryset().select_related('provider', )
+        return super(models.Manager, self).get_queryset().select_related(
+            'provider',
+            'provider__site',
+            'provider__site__siteprofile',
+        )
 
     def public(self):
         return self.filter(

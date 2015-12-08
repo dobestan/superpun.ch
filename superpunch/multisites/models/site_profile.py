@@ -3,7 +3,9 @@ from django.contrib.sites.models import Site
 
 
 class SiteProfileManager(models.Manager):
-    pass
+
+    def get_queryset(self):
+        return super(models.Manager, self).get_queryset().select_related('site')
 
 
 class SiteProfile(models.Model):
