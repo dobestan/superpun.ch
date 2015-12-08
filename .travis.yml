@@ -14,6 +14,6 @@ before_script:
 script:
 - make migrate
 - make test
-- make collecstatic
+- make collectstatic
 after_success:
 - coveralls
