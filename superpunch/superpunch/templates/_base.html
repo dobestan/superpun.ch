@@ -1,13 +1,6 @@
 {% load pipeline %}<!DOCTYPE html>
 <!--
-     _____ __  ______  __________  ____  __  ___   __ ________  __
-    / ___// / / / __ \/ ____/ __ \/ __ \/ / / / | / // ____/ / / /
-    \__ \/ / / / /_/ / __/ / /_/ / /_/ / / / /  |/ // /   / /_/ /
-   ___/ / /_/ / ____/ /___/ _, _/ ____/ /_/ / /|  // /___/ __  /
-  /____/\____/_/   /_____/_/ |_/_/    \____/_/ |_(_)____/_/ /_/
-
-  SuperPun.ch :: Leading Contents Distribution
-  http://superpun.ch
+{{ site_profile.ascii_art|safe }}
 -->
 <html>
   <head>
@@ -15,16 +8,54 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block meta_title %}{{ site_profile.default_meta_title }}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{{ site_profile.default_meta_description }}{% endblock %}"/>
+    <meta name="keywords" content="{% block meta_keywords %}{{ site_profile.default_meta_keywords }}{% endblock %}"/>
+
+    {# OpenGraph Meta Tags - http://ogp.me/ #}
+    <meta property="og:locale" content="ko_KR"/>
+    <meta property="og:locale:alternate" content="en_US"/>
+
+    <meta property="og:site_name" content="{% block meta_og_site_name %}{{ site.name }}{% endblock %}"/>
+    <meta property="og:title" content="{% block meta_og_title %}{{ site_profile.default_meta_title }}{% endblock %}"/>
+    <meta property="og:url" content="{% block meta_og_url %}http://{{ site.domain }}{{ request.path }}{% endblock %}"/>
+    <meta property="og:type" content="{% block meta_og_type %}website{% endblock %}"/>
+    <meta property="og:description" content="{% block meta_og_description %}{{ site_profile.default_meta_description }}{% endblock %}"/>
+
+    <meta property="og:image" content="{% block meta_og_image %}{% if site_profile.default_meta_image %}{{ site_profile.default_meta_image.url }}{% endif %}{% endblock %}"/>
+    <meta property="og:image:width" content="{% block meta_og_image_width %}1200{% endblock %}"/>
+    <meta property="og:image:height" content="{% block meta_og_image_height %}630{% endblock %}"/>
+
+    <meta property="fb:app_id" content="{% block meta_fb_app_id %}{{ site_profile.facebook_app_id }}{% endblock %}"/>
+    <meta name="naver-site-verification" content="{% block meta_naver_site_verification %}{{ site_profile.naver_site_verification }}{% endblock %}"/>
+
     {% stylesheet 'vendor' %}
     {% stylesheet 'main' %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site_profile.google_analytics_tracking_id }}', 'auto');
+      ga('require', 'displayfeatures');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
   </head>
   <body>
     {% include '_partials/_header.html' %}
-    <section id="content">
-      {% block content %}{% endblock %}
-    </section>
+    <section id="content">{% block content %}{% endblock %}</section>
     {% include '_partials/_footer.html' %}
     {% javascript 'vendor' %}
     {% javascript 'main' %}
+
+    {# Naver Analytics - http://analytics.naver.com/service/index.html #}
+    <script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+      if(!wcs_add) var wcs_add = {};
+      wcs_add["wa"] = "{{ site_profile.naver_analytics_tracking_id }}";
+      wcs_do();
+    </script>
   </body>
 </html>

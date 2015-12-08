@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.sites.models import Site
 
+from multisites.utils.image import default_meta_image_upload_to
+
 
 class SiteProfileManager(models.Manager):
 
@@ -15,6 +17,34 @@ class SiteProfile(models.Model):
         primary_key=True,
     )
 
+    default_meta_title = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+    )
+    default_meta_description = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+    )
+    default_meta_keywords = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+    )
+    default_meta_image = models.ImageField(
+        upload_to=default_meta_image_upload_to,
+        blank=True,
+        null=True,
+        help_text="image/png, 1200px * 630px Recommended.",
+    )
+
+    facebook_app_id = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+        help_text='<a href="https://developers.facebook.com/" target="_blank">Facebook Developers</a>'
+    )
     facebook_page_id = models.CharField(
         max_length=32,
         blank=True,
@@ -22,6 +52,31 @@ class SiteProfile(models.Model):
     )
     facebook_page_slug = models.CharField(
         max_length=32,
+        blank=True,
+        null=True,
+    )
+
+    google_analytics_tracking_id = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+        help_text='<a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a>'
+    )
+
+    naver_site_verification = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+        help_text='<a href="http://webmastertool.naver.com/" target="_blank">네이버 웹마스터도구</a>'
+    )
+    naver_analytics_tracking_id = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+        help_text='<a href="http://analytics.naver.com/" target="_blank">네이버 애널리틱스</a>'
+    )
+
+    ascii_art = models.TextField(
         blank=True,
         null=True,
     )
