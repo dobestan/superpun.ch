@@ -7,6 +7,7 @@ install:
 - pip install -r requirements.txt
 - pip install -r requirements/development.txt
 - pip install coveralls
+- gem install compass
 - npm install
 - npm install -g grunt-cli bower
 before_script:
