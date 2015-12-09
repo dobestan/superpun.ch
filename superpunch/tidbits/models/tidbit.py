@@ -57,7 +57,7 @@ class Tidbit(models.Model):
         verbose_name='본문',
     )
     author = models.CharField(
-        max_length=16,
+        max_length=64,
         blank=True,
         null=True,
         verbose_name='작성자',
