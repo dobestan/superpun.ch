@@ -104,3 +104,10 @@ class SiteProfile(models.Model):
         return "https://m.facebook.com/messages/thread/{facebook_page_id}/".format(
             facebook_page_id=self.facebook_page_id,
         )
+
+    @property
+    def facebook_page_profile_image_url(self):
+        return "https://graph.facebook.com/{graph_api_version}/{facebook_page_id}/picture/".format(
+            graph_api_version='v2.5',
+            facebook_page_id=self.facebook_page_id,
+        )
