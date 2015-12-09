@@ -92,3 +92,15 @@ class SiteProfile(models.Model):
 
     def __str__(self):
         return self.site.__str__()
+
+    @property
+    def facebook_page_url(self):
+        return "https://www.facebook.com/{facebook_page_slug}/".format(
+            facebook_page_slug=self.facebook_page_slug,
+        )
+
+    @property
+    def facebook_message_url(self):
+        return "https://m.facebook.com/messages/thread/{facebook_page_id}/".format(
+            facebook_page_id=self.facebook_page_id,
+        )

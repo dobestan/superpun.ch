@@ -13,6 +13,8 @@ urlpatterns = [
     url(r'^', include([
         url(r'^facebook/$', FacebookPageRedirectView.as_view(), name='page'),
         url(r'^facebook/message/$', FacebookMessageRedirectView.as_view(), name='message'),
+
+        url(r'^contact/$', FacebookMessageRedirectView.as_view(), name='contact'),
     ], namespace='facebook')),
 
     url(r'^', include([
