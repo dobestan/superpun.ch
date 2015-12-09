@@ -103,11 +103,9 @@ class Tidbit(models.Model):
         )
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
-
-        return reverse(
-            'tidbits:detail',
-            kwargs={'slug': self.hash_id, },
+        return "http://{domain}/{tidbit_hash_id}/".format(
+            domain=self.site.domain,
+            tidbit_hash_id=self.hash_id,
         )
 
     def _create_hash_id(self):

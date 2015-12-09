@@ -8,7 +8,7 @@ from superpunch.views import *
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^superadmin/', admin.site.urls),
 
     url(r'^', include([
         url(r'^facebook/$', FacebookPageRedirectView.as_view(), name='page'),
