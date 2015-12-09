@@ -14,3 +14,4 @@ celery
 flower
 redis
 django-pipeline
+raven
