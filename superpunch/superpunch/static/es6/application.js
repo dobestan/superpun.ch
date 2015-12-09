@@ -1,1 +1,1 @@
-require('./_partials/_footer');
+// require('./_partials/_footer');
