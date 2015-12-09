@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.sites.models import Site
 
 from tidbits.utils.image import meta_image_upload_to
 
@@ -22,8 +23,16 @@ class TidbitManager(models.Manager):
 
 class Tidbit(models.Model):
 
+    site = models.ForeignKey(
+        Site,
+        blank=True,
+        null=True,
+    )
+
     provider = models.ForeignKey(
         'Provider',
+        blank=True,
+        null=True,
     )
 
     hash_id = models.CharField(
