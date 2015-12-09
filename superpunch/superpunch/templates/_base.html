@@ -56,11 +56,11 @@
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
          js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
+         js.src = "//connect.facebook.net/ko_KR/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    {% include '_partials/_header.html' %}
+    {# {% include '_partials/_header.html' %} #}
     <section id="content">{% block content %}{% endblock %}</section>
     {% include '_partials/_footer.html' %}
     {% javascript 'vendor' %}
