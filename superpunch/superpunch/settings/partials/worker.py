@@ -15,7 +15,14 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 
 CELERYBEAT_SCHEDULE = {
+    'Tidbits | Update Provider Feeds': {
+        'task': 'tidbits.tasks.feed.UpdateProviderFeedTask',
+        'schedule': crontab(
+            minute='00',
+        )
+    },
 }
+
 
 CELERY_TIMEZONE = 'Asia/Seoul'
 
