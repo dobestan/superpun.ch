@@ -7,10 +7,17 @@ install:
 - pip install -r requirements.txt
 - pip install -r requirements/development.txt
 - pip install coveralls
+- gem install compass
+- npm install
+- npm install -g grunt-cli bower
 before_script:
 - psql -c 'CREATE DATABASE superpunch;' -U postgres
 script:
 - make migrate
 - make test
+- make collectstatic
 after_success:
 - coveralls
+notifications:
+  slack:
+    secure: priNSGV0UOuLVVKYGeoJEhhk+S/qvbcVlY97IBB5pkOiE7MblGNX5WXjnGWTt7BrA1piZ8dukxkdgZY5DRYpqs9MWh4MNMjuHIUNHk7BFDWHr3oQ9LO3z/a3BEgWn5uRm3FO4yleDO+MDVcmwXD2wMlyoWuR9gPbFEx5tTN406tS7z7+5fEhA/oTeLWRxLXMrwe+aNynIDL04PGH8oQiY7W7vd96xJYHqhIGgK+NMjuFs6v6DaHtnlzO5v3H/YU6DqXIiC2q9GtaReI+Ve6eNSWhIGEeQuJlsZE0+h5Wa0SyOXhoVrXNmeMjXt+HREorKsngfDGbuRnVdGbbm6atTVWzaKKwSK5JraWvO/qtAROOwzHSEyFeZMSEWKN7CI3WxGiGN8zfOYAQYpVjuLw7KeQ4aLhfW8HS1lIvAYuHP+EU954YIiGuFtYhCotUoWqRsTEhA3YBBzcYQ8dOAnh0/bNl3TKP9i1MmWsOUE5y/WHekcrHlT8yEZPADBT8GwmY43jHvhXm/81U9yKXzsp+lMW0JuAfpN7zmK/Jv+WEEfopeI6UtPYfktkbj65xJvci2zFVn11X8Q/uwWjLIFluUGlvrMyjkWJ0R6ZTO59xYTcsxSZoze9VD6BU0FQATdYM4bqY7Sd4xLCl9OVq4dL6wiTxWEW1riu4DizY/cqky+o=

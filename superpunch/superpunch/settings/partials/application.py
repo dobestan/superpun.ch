@@ -28,6 +28,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'pipeline',
+
+    'multisites',
+    'tidbits',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +62,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Custom Context Processors
+                'multisites.context_processors.sites',
             ],
         },
     },
@@ -111,7 +120,5 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
+# Site Frameworks
+SITE_ID = 1

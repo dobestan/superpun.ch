@@ -10,7 +10,7 @@ clean:
 
 # target: migrate - Migrate all django applications considering app dependencies
 migrate:
-	python superpunch/manage.py makemigrations multisites items
+	python superpunch/manage.py makemigrations multisites tidbits
 	python superpunch/manage.py migrate
 
 
@@ -23,3 +23,11 @@ clean_migrations:
 test:
 	flake8 superpunch/
 	superpunch/manage.py test superpunch/ -v 2
+
+
+# target: collectstatic - manages all static files including scss, es6 compile and django collectstatic
+collectstatic:
+	grunt bowercopy
+	grunt compass
+	grunt browserify
+	superpunch/manage.py collectstatic --noinput

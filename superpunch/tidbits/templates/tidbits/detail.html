@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+
+{% block meta_title %}{% if tidbit.meta_title %}{{ tidbit.meta_title }}{% else %}{{ site_profile.default_meta_title }}{% endif %}{% endblock %}
+{% block meta_description %}{% if tidbit.meta_description %}{{ tidbit.meta_description }}{% else %}{{ site_profile.default_meta_title }}{% endif %}{% endblock %}
+{% block meta_keywords %}{% if tidbit.meta_keywords %}{{ tidbit.meta_keywords }}{% else %}{{ site_profile.default_meta_keywords }}{% endif %}{% endblock %}
+
+{% block meta_og_title %}{% if tidbit.meta_title %}{{ tidbit.meta_title }}{% else %}{{ site_profile.default_meta_title }}{% endif %}{% endblock %}
+{% block meta_og_type %}article{% endblock %}
+{% block meta_og_description %}{% if tidbit.meta_description %}{{ tidbit.meta_description }}{% else %}{{ site_profile.default_meta_title }}{% endif %}{% endblock %}
+
+{% block meta_og_image %}{% if tidbit.meta_image %}{{ tidbit.meta_image.url }}{% else %}{{ site_profile.meta_image.url }}{% endif %}{% endblock %}
+{% block meta_og_image_width %}{% if tidbit.meta_image %}{{ tidbit.meta_image.width }}{% else %}{{ site_profile.meta_image.width }}{% endif %}{% endblock %}
+{% block meta_og_image_height %}{% if tidbit.meta_image %}{{ tidbit.meta_image.height }}{% else %}{{ site_profile.meta_image.height }}{% endif %}{% endblock %}
+
+
+{% block content %}
+  <iframe src="{{ tidbit.original_url }}"></iframe>
+{% endblock content %}

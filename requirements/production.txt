@@ -5,3 +5,13 @@ pandas
 gunicorn
 honcho
 hashids
+feedparser
+Pillow
+requests
+lxml
+cssselect
+celery
+flower
+redis
+django-pipeline
+raven

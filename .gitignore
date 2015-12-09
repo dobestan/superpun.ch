@@ -55,3 +55,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Node Modules
+node_modules/
+.sass-cache/

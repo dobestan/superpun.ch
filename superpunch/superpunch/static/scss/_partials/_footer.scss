@@ -1,0 +1,51 @@
+footer#footer {
+  #footer__banner {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: $footer-height;
+
+    background-color: $facebook-blue;
+
+    z-index: 1;
+
+    @include transition-property(all);
+    @include transition-duration(0.5s);
+
+    &.footer__banner--hide {
+      bottom: ($footer-banner-header-height - $footer-height);
+    }
+
+    #footer__banner__header {
+      height: $footer-banner-header-height;
+
+      // cursor: pointer;
+
+      #footer__banner__header__facebook {
+        margin-top: 15px;
+
+        .fb-logo {
+          height: 30px;
+        }
+
+        .fb-like {
+          padding: 5px;
+
+          margin-left: 5px;
+
+          background-color: $facebook-white;
+          border-radius: 3px;
+        }
+      }
+    }
+
+    #footer__banner__body {
+      height: ($footer-height - $footer-banner-header-height);
+
+      background-color: $facebook-gray;
+    }
+  }
+}
