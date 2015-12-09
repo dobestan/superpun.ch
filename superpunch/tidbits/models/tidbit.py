@@ -93,7 +93,7 @@ class Tidbit(models.Model):
         ordering = ['-created_at', ]
         get_latest_by = 'created_at'
         unique_together = (
-            ('provider', 'title', ),
+            ('provider', 'original_url', ),
         )
 
     def __str__(self):
